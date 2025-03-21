@@ -1,0 +1,17 @@
+
+        .navbar-brand {
+            transition: 0.3s ease-in-out;
+        }
+        .navbar-brand:hover {
+            color: #f8d210;
+            transform: scale(1.05);
+        }
+        .logout-btn {
+          transition: 0.3s ease-in-out;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
+            transform: scale(1.1);
+
+        }
+  
