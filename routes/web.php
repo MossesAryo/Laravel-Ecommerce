@@ -15,6 +15,8 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showlogin'])->name('login');
     Route::post('/login/submit', [AuthController::class, 'submitlogin'])->name('login.submit');
 });
+
+
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/createPage', function () {

@@ -19,7 +19,7 @@ class ProductController extends Controller
         $products = Product::latest()->paginate(6);
     }
 
-    return view('products.index', compact('products'));
+    return view('back.products.index', compact('products'));
 }
 
     public function store(Request $request){
@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('products.edit', compact('product')); 
+        return view('back.products.edit', compact('product')); 
     }
 
     public function update(Request $request, $id)
