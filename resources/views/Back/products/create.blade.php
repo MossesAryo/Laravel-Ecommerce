@@ -14,6 +14,17 @@
                         <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
                     </div>
                     <div class="mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-control" id="category" name="category" required>
+                            <option value="">-- Select Category --</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="home">Home</option>
+                            <option value="beauty">Beauty</option>
+                            <option value="sports">Sports</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="harga" class="form-label">Harga</label>
                         <input type="text" class="form-control" id="harga" name="harga" required>
                     </div>
@@ -32,5 +43,5 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> 
 @endsection
