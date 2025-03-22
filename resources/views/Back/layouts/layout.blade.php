@@ -12,7 +12,7 @@
 <body class="bg-gray-100 d-flex flex-column min-vh-100">
     <div class="flex">
         <!-- Sidebar -->
-        @include('layouts.navbar')
+        @include('back.layouts.navbar')
         @yield('main')
 
         

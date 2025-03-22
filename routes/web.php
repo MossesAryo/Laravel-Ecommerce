@@ -20,7 +20,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/createPage', function () {
-        return view('products.create');
+        return view('back.products.create');
     })->name('create');
     Route::post('/create', [ProductController::class, 'store'])->name('CreateProduk');
     Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('edit');
