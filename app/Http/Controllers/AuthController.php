@@ -16,21 +16,14 @@ class AuthController extends Controller
     }
     function submitRegistration(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-    
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = 1;
+        $user->save();
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => 1, 
-        ]);
-    
-        return redirect()->route('login')->with('success', 'Registration successful. Please log in.');
+        return redirect()->route('login');
     }
     function showLogin()
     {
@@ -39,12 +32,13 @@ class AuthController extends Controller
     function submitLogin(Request $request)
     {
         $data = $request->only('email', 'password');
+        $remember = $request->has('remember');
 
-        if (Auth::attempt($data)) {
+        if (Auth::attempt($data, $remember)) {
             $request->session()->regenerate();
             return redirect()->route('Dashboard');
         } else {
-            return redirect()->back()->withErrors(['gagal', 'Email Atau Password Salah']);
+            return redirect()->back()->with('gagal', 'Email Atau Password Salah');
         }
     }
     function logout(Request $request)
